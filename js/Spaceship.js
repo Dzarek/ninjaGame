@@ -33,7 +33,9 @@ export class Spaceship {
     this.container.appendChild(btnS);
     btnS.classList.add("shoot");
     btnS.style.backgroundImage = "url(images/star.png)";
-    btnS.addEventListener("touchstart", () => {
+    btnS.addEventListener("touchstart", (event) => {
+      event.stopPropagation();
+      event.preventDefault();
       btnS.style.opacity = 0.7;
       this.#shot();
     });
@@ -45,7 +47,9 @@ export class Spaceship {
     this.container.appendChild(leftMove);
     leftMove.classList.add("leftMove");
     leftMove.style.backgroundImage = "url(images/1.png)";
-    leftMove.addEventListener("touchstart", () => {
+    leftMove.addEventListener("touchstart", (event) => {
+      event.stopPropagation();
+      event.preventDefault();
       this.#leftArrow = true;
       leftMove.style.opacity = 0.7;
     });
@@ -59,7 +63,9 @@ export class Spaceship {
     rightMove.classList.add("rightMove");
     // rightMove.innerHTML = "R";
     rightMove.style.backgroundImage = "url(images/1.png)";
-    rightMove.addEventListener("touchstart", () => {
+    rightMove.addEventListener("touchstart", (event) => {
+      event.stopPropagation();
+      event.preventDefault();
       this.#rightArrow = true;
       rightMove.style.opacity = 0.7;
     });
@@ -72,7 +78,9 @@ export class Spaceship {
     this.container.appendChild(upMove);
     upMove.classList.add("upMove");
     upMove.style.backgroundImage = "url(images/1.png)";
-    upMove.addEventListener("touchstart", () => {
+    upMove.addEventListener("touchstart", (event) => {
+      event.stopPropagation();
+      event.preventDefault();
       this.#upArrow = true;
       upMove.style.opacity = 0.7;
     });
@@ -85,7 +93,9 @@ export class Spaceship {
     this.container.appendChild(downMove);
     downMove.classList.add("downMove");
     downMove.style.backgroundImage = "url(images/1.png)";
-    downMove.addEventListener("touchstart", () => {
+    downMove.addEventListener("touchstart", (event) => {
+      event.stopPropagation();
+      event.preventDefault();
       this.#downArrow = true;
       downMove.style.opacity = 0.7;
     });
