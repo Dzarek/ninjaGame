@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <button id="bstop"><i class="fas fa-volume-mute"></i></button>
+    <button id="bplay"><i class="fas fa-volume-up"></i></button>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nova+Square&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/stylefirst.css">
+</head>
+
+<body>
+    <div class="container">
+        <div id="end" class="flex-center flex-column">
+            <h1 id="finalScore">0</h1>
+            <form class="end-form-container">
+                <h2 id="end-text">Wpisz swoje imię aby zapisać wynik</h2>
+                <input type="text" name="name" id="username" placeholder="Imię gracza...">
+                <button class="btn" id="saveScoreBtn" type="submit" onclick="saveHighScore(event)"
+                    disabled>Zapisz</button>
+            </form>
+            <a href="game.html" class="btn">Zagraj ponownie</a>
+            <a href="index.html" class="btn">Wyjście <i class="fas fa-home"></i></a>
+            <img class="zombieLoose" src="images/zombieLoose.gif" alt="bike">
+            <img class="ninjaLoose" src="images/ninja.gif" alt="bike">
+        </div>
+    </div>
+    <script src="js/end.js"></script>
+</body>
+
+</html>

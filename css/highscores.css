@@ -1,0 +1,84 @@
+body {
+    color: #fff;
+    background-image: url(../images/vsZ2M.gif);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    /* backdrop-filter: blur(1px); */
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+}
+
+#highScoresList {
+    list-style: none;
+    margin-bottom: 4rem;
+}
+
+.high-score {
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
+}
+
+.ninjaHighR {
+    position: absolute;
+    z-index: -2;
+    bottom: 0%;
+    right: 15%;
+    height: 85vh;
+}
+
+.ninjaHighL {
+    position: absolute;
+    z-index: -2;
+    bottom: 0%;
+    left: 15%;
+    height: 85vh;
+    transform: scaleX(-1);
+}
+
+#bstop,
+#bplay {
+    display: none;
+}
+
+@media(orientation: portrait) and (min-width: 360px) {
+    body {
+        background-size: cover;
+        overflow: hidden;
+        height: 100vh;
+        width: 100vw;
+    }
+
+    .ninjaHighR {
+        display: none;
+    }
+
+    .ninjaHighL {
+        position: absolute;
+        z-index: -2;
+        bottom: 0%;
+        left: 10%;
+        height: 85vh;
+        transform: scaleX(-1);
+    }
+}
+
+@media(orientation: landscape) and (max-width: 800px) {
+
+    .high-score {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+    }
+
+    #highScoresList {
+        list-style: none;
+        margin: 2rem;
+
+    }
+
+    #finalScore {
+        margin: 50px 0 0;
+    }
+
+}

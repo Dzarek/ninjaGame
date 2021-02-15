@@ -1,0 +1,528 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: 62.5%;
+    font-family: 'Arial';
+}
+
+body {
+    overflow: hidden;
+    background-image: url('../images/35c026d477407f8753824fb109b78dbf.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* #bstop,
+#bplay {
+    position: fixed;
+    top: 5vh;
+    left: 1vh;
+    width: 50px;
+    height: 50px;
+    font-size: 40px;
+    border-radius: 5px;
+    line-height: 20px;
+    z-index: 22;
+    background-color: rgba(78, 42, 17, 0.281);
+    color: rgb(250, 226, 211);
+    cursor: pointer;
+    border: 2px solid rgb(250, 226, 211);
+}
+
+#bstop {
+    top: 15vh;
+} */
+
+#home {
+    margin-top: 150px;
+}
+
+h1 {
+    font-size: 5.4rem;
+    color: rgb(255, 255, 255);
+    margin-bottom: 5rem;
+    text-shadow: 0 0 10px rgb(255, 2, 2);
+}
+
+h2 {
+    font-size: 4rem;
+    margin-bottom: 4rem;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: rgba(70, 48, 36, 0.5);
+    backdrop-filter: blur(.6px);
+}
+
+.home-name {
+    position: fixed;
+    top: 2vh;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 100px;
+    font-size: 60px;
+    padding: 10px 50px;
+    border: rgb(49, 19, 2) solid 3px;
+    border-radius: 10px;
+    color: rgb(250, 226, 211);
+    box-shadow: 0rem 0rem 1.4rem 1rem rgba(251, 253, 255, 0.6);
+    z-index: 10;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.flex-center {
+    justify-content: center;
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.btn {
+    font-size: 3rem;
+    padding: 1.5rem 0;
+    width: 35rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    border: rgb(240, 240, 240) solid 3px;
+    border-radius: 10px;
+    background-color: rgba(172, 38, 38, 0.63);
+}
+
+.eye {
+    height: 60px;
+    width: 60px;
+    margin: -20px;
+    margin-left: 20px;
+    margin-bottom: -10px;
+}
+
+.zombieImg {
+    position: absolute;
+    z-index: 200;
+    bottom: 0%;
+    left: 8%;
+    height: 80vh;
+}
+
+.litleZombie {
+    position: absolute;
+    z-index: 200;
+    bottom: 0%;
+    right: 15%;
+    height: 40vh;
+    transform: scaleX(-1);
+}
+
+.zombieLoose {
+    position: absolute;
+    z-index: 200;
+    bottom: 0%;
+    left: 10%;
+    height: 40vh;
+
+}
+
+.ninjaLoose {
+    position: absolute;
+    z-index: 200;
+    top: 0%;
+    right: 10%;
+    height: 40vh;
+    transform: scaleY(-1);
+}
+
+.btn:hover {
+    cursor: pointer;
+    box-shadow: 0 1rem 1.4rem 0 rgb(161, 161, 161);
+    transition: transform 150ms;
+    transform: scale(1.03);
+}
+
+.btn[disabled]:hover {
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+    border: rgb(49, 19, 2) solid 3px;
+}
+
+#highscore-btn {
+    color: rgb(250, 226, 211);
+}
+
+.fa-crown {
+    font-size: 2.5rem;
+    margin-left: 1rem;
+}
+
+.end-form-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 30rem;
+}
+
+input {
+    margin-bottom: 1rem;
+    width: 20rem;
+    padding: 1.5rem;
+    font-size: 1.8rem;
+    border: none;
+    box-shadow: 0 0.1rem 1.4rem 0 rgba(86, 185, 235, 0.5);
+
+}
+
+input::placeholder {
+    color: #aaa;
+}
+
+#username {
+    margin-bottom: 3rem;
+    width: 100%;
+    outline: none;
+    color: rgb(0, 0, 0);
+}
+
+#end-text {
+    font-size: 2.4rem;
+    color: rgb(250, 226, 211);
+    text-align: center;
+}
+
+
+.fa-home {
+    margin-left: 1rem;
+    font-size: 2rem;
+    color: rgb(248, 248, 248);
+}
+
+@media(orientation: portrait) and (min-width: 360px) {
+
+    body {
+        background-size: cover;
+    }
+
+    #bstop,
+    #bplay {
+        display: none;
+    }
+
+    #bstop {
+
+        top: 3vh;
+        left: 6vw;
+    }
+
+    #home {
+        margin-top: 15px;
+    }
+
+
+    .eye {
+        height: 60px;
+        width: 60px;
+        margin: -20px;
+        margin-left: 20px;
+        margin-bottom: -10px;
+    }
+
+    .zombieImg {
+        display: block;
+        z-index: -1;
+    }
+
+    .litleZombie {
+        display: none;
+    }
+
+    .zombieLoose {
+        position: absolute;
+        z-index: -1;
+        bottom: 0%;
+        left: 10%;
+        height: 30vh;
+    }
+
+    .ninjaLoose {
+        position: absolute;
+        z-index: -1;
+        top: 0%;
+        right: 10%;
+        height: 20vh;
+        transform: scaleY(-1);
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .container {
+        padding: 1rem;
+        width: 100vw;
+    }
+
+    .levels {
+        width: 100vw;
+    }
+
+
+    .levelBtn {
+        margin: 40vh auto auto;
+    }
+
+    .levelBtn a {
+        width: 60vw;
+    }
+
+    .levelBtn p {
+        top: 25vh;
+        font-size: 35px;
+        width: 100vw;
+    }
+
+
+
+    .home-name {
+        margin-bottom: 20px;
+        font-size: 30px;
+        padding: 5px 0px;
+        text-align: center;
+        width: 90%;
+    }
+
+    .btn {
+        font-size: 3rem;
+        padding: 1.5rem 10px;
+        width: 90%;
+        margin-bottom: 2rem;
+    }
+
+    .back {
+        width: 70vw;
+    }
+
+
+    .end-form-container {
+        width: 100%;
+
+        max-width: 30rem;
+
+    }
+
+    input {
+        margin-bottom: 1rem;
+        width: 20rem;
+        padding: 1.5rem;
+        font-size: 1.8rem;
+    }
+
+
+
+    #username {
+        margin-bottom: 3rem;
+        width: 100%;
+
+    }
+
+    #end-text {
+        font-size: 2.4rem;
+
+    }
+
+
+    .fa-home {
+        margin-left: 1rem;
+        font-size: 2rem;
+
+    }
+
+
+}
+
+@media(orientation: landscape) and (max-width: 800px) {
+
+    #home {
+        margin-top: 40px;
+    }
+
+    #bstop,
+    #bplay {
+        display: none;
+    }
+
+    #bstop {
+
+        top: 1vh;
+        left: .5vw;
+    }
+
+    h1 {
+
+        font-size: 2.8rem;
+        margin-bottom: 3rem;
+    }
+
+    h2 {
+        font-size: 3rem;
+        margin-bottom: 3rem;
+    }
+
+    .container {
+        padding: 2rem;
+    }
+
+    .eye {
+        height: 40px;
+        width: 40px;
+        margin: -20px;
+        margin-left: 20px;
+        margin-bottom: -10px;
+    }
+
+    .zombieImg {
+        position: absolute;
+        z-index: -1;
+        bottom: 0%;
+        left: 0%;
+        height: 70vh;
+    }
+
+    .litleZombie {
+        position: absolute;
+        z-index: -1;
+        bottom: 0%;
+        right: 10%;
+        height: 40vh;
+        transform: scaleX(-1);
+    }
+
+    .zombieLoose {
+        position: absolute;
+        z-index: -1;
+        bottom: 0%;
+        left: 10%;
+        height: 40vh;
+
+    }
+
+    .ninjaLoose {
+        position: absolute;
+        z-index: -1;
+        top: 0%;
+        right: 10%;
+        height: 40vh;
+        transform: scaleY(-1);
+    }
+
+    .levels {
+        width: 100vw;
+    }
+
+
+    .levelBtn {
+        margin: 40vh auto auto;
+    }
+
+    .levelBtn a {
+        width: 35vw;
+        margin-top: 1vh;
+    }
+
+    .levelBtn p {
+        top: 25vh;
+        font-size: 30px;
+        width: 100vw;
+    }
+
+
+
+    .home-name {
+        margin-bottom: 50px;
+        font-size: 30px;
+        padding: 5px;
+        width: 60vw;
+        text-align: center;
+    }
+
+
+    .btn {
+        font-size: 2rem;
+        padding: 1rem 0;
+        width: 25rem;
+        margin-bottom: .5rem;
+    }
+
+    .back {
+        margin-top: 5vh;
+        width: 40vw;
+    }
+
+
+    .fa-crown {
+        font-size: 2.5rem;
+        margin-left: 1rem;
+    }
+
+    .end-form-container {
+        width: 100%;
+        max-width: 30rem;
+    }
+
+    input {
+        margin-top: -25px;
+        margin-bottom: .3rem;
+        width: 20rem;
+        padding: 1.5rem;
+        font-size: 1.4rem;
+    }
+
+
+
+    #username {
+        margin-bottom: 1rem;
+        width: 100%;
+    }
+
+    #end-text {
+        font-size: 2rem;
+    }
+
+
+    .fa-home {
+        margin-left: 1rem;
+        font-size: 2rem;
+    }
+}

@@ -1,0 +1,620 @@
+:root {
+  --primary-color: #09fced;
+  --secondary-color: #510303;
+  --size-unit: 64px;
+  --animation-time: 200ms;
+  --explosion-animation-time: 600ms;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
+}
+
+
+body {
+  font-family: 'Lato', sans-serif;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+
+}
+
+#bstop,
+#bplay {
+  position: fixed;
+  top: 1vh;
+  left: 45%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 50px;
+  font-size: 40px;
+  border-radius: 5px;
+  line-height: 20px;
+  z-index: 22;
+  background-color: rgba(27, 27, 27, 0.555);
+  color: rgb(250, 226, 211);
+  cursor: pointer;
+  border: 2px solid rgb(250, 226, 211);
+}
+
+#bstop {
+  margin-left: 5%;
+}
+
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../images/city.png');
+  position: absolute;
+  background-size: cover;
+  background-position: bottom bottom;
+  /* animation: BgGo 5s steps(200) infinite; */
+  animation: BgGo 100s linear infinite;
+
+}
+
+
+@keyframes BgGo {
+  from {
+    background-position-x: 0%;
+
+  }
+
+  to {
+    background-position-x: 100%;
+
+  }
+}
+
+.quake {
+  position: fixed;
+  z-index: 100000000;
+  background-color: #fff;
+  /* animation: moveBg .3s linear infinite alternate, */
+}
+
+
+
+@keyframes moveBg {
+  from {
+
+    background-position-x: -3px;
+    background-position-y: 3px;
+  }
+
+  to {
+
+    background-position-x: 3px;
+    background-position-y: -3px;
+  }
+}
+
+
+.information {
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  font-size: 32px;
+  z-index: 2;
+  position: relative;
+}
+
+
+
+.modal {
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  /* background-image: url('../images/blizzardskull.png');
+  background-size: cover;
+  background-repeat: no-repeat; */
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  display: flex;
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal__content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__text {
+  font-size: 42px;
+  text-align: center;
+}
+
+.modal__button {
+  width: 40%;
+  padding: 10px 0px;
+  background-color: rgb(134, 16, 16);
+  border: 3px solid rgb(179, 179, 179);
+  color: rgb(179, 179, 179);
+  cursor: pointer;
+  font-size: 42px;
+  margin: 20px auto 0;
+  outline: none;
+  transition: box-shadow 0.1s;
+  border-radius: 10px;
+}
+
+.modal__button:hover {
+  box-shadow: 0px 0px 20px 5px var(--primary-color);
+}
+
+.spaceship {
+  width: calc(var(--size-unit) *2);
+  height: 103px;
+  background-image: url('../images/ship.png');
+  animation: move-16-units-X .5s steps(8) infinite;
+  position: fixed;
+  transform: scale(2);
+}
+
+.ghost {
+  background-image: url('../images/ghost.gif');
+  background-size: cover;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+}
+
+
+.enemy,
+.enemy-red {
+  width: var(--size-unit);
+  height: var(--size-unit);
+  background-image: url('../images/enemy.png');
+  animation: move-5-units-X var(--animation-time) steps(5) infinite;
+  z-index: 1;
+  position: absolute;
+  transform: scale(1.5);
+}
+
+.enemy-red {
+  background-image: url('../images/enemy-red.png');
+  transform: scale(1);
+}
+
+.enemy--big {
+  width: calc(var(--size-unit) *2);
+  height: 188px;
+  background-image: url('../images/enemy-big.png');
+  animation: move-16-units-X .5s steps(8) infinite;
+  position: absolute;
+}
+
+
+@keyframes move-12-units-X {
+  from {
+    background-position-x: 0px;
+  }
+
+  to {
+    background-position-x: calc(var(--size-unit) * -32);
+  }
+}
+
+.enemy--huge {
+  width: calc(var(--size-unit) *2);
+  height: 201px;
+  background-image: url('../images/enemy-huge.png');
+  animation: move-16-units-X .8s steps(8) infinite;
+  position: absolute;
+  transform: scale(1.1);
+}
+
+
+.enemy--boss {
+  width: calc(var(--size-unit) *2);
+  height: 219px;
+  background-image: url('../images/boss.png');
+  animation: move-16-units-X .8s steps(8) infinite;
+  position: absolute;
+  transform: scale(1);
+}
+
+
+
+.enemy--asteroid {
+  width: var(--size-unit);
+  height: var(--size-unit);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url('../images/aestroid_brown.png');
+  animation: move-asteroid 2000ms steps(100) infinite;
+  position: absolute;
+
+}
+
+.enemy--shot {
+
+  background-image: url('../images/bat.gif');
+  background-size: cover;
+  width: var(--size-unit);
+  height: var(--size-unit);
+  position: absolute;
+  transform: scaleX(-1);
+}
+
+
+@keyframes move-asteroid {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.explosion {
+  width: var(--size-unit);
+  height: var(--size-unit);
+  background-image: url('../images/explosion.png');
+  animation: move-17-units-X var(--explosion-animation-time) steps(17) forwards;
+  position: absolute;
+}
+
+.explosion--big {
+  width: var(--size-unit);
+  height: var(--size-unit);
+  background-image: url('../images/explosion.png');
+  animation: move-17-units-X var(--explosion-animation-time) steps(17) forwards;
+  position: absolute;
+  transform: scale(4);
+}
+
+.explosion--bigBlue {
+  width: var(--size-unit);
+  height: var(--size-unit);
+  background-image: url('../images/explosion-blue.png');
+  animation: move-17-units-X var(--explosion-animation-time) steps(17) forwards;
+  position: absolute;
+  transform: scale(2);
+}
+
+.explosion--huge {
+  width: calc(var(--size-unit) *2);
+  height: calc(var(--size-unit) *2);
+  background-image: url('../images/explosion-big.png');
+  animation: move-34-units-X var(--explosion-animation-time) steps(17) forwards;
+  position: absolute;
+  transform: scale(5);
+
+}
+
+.explosion--boss {
+  width: calc(var(--size-unit) *2);
+  height: calc(var(--size-unit) *2);
+  background-image: url('../images/explosion-big.png');
+  animation: move-34-units-X 2s steps(17) forwards;
+  position: absolute;
+  transform: scale(5);
+}
+
+.missile {
+  background-image: url('../images/star.png');
+  background-size: cover;
+  width: 48px;
+  height: 43px;
+  position: absolute;
+  animation: rotationStar .8s linear infinite;
+}
+
+@keyframes rotationStar {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+.enemy-missile {
+  background-image: url('../images/bullet.png');
+  background-size: cover;
+  width: 12px;
+  height: 24px;
+  position: absolute;
+}
+
+@keyframes move-4-units-X {
+  from {
+    background-position-x: 0px;
+  }
+
+  to {
+    background-position-x: calc(var(--size-unit) * -4);
+  }
+}
+
+@keyframes move-6-units-X {
+  from {
+    background-position-x: 0px;
+  }
+
+  to {
+    background-position-x: calc(var(--size-unit) * -6);
+  }
+}
+
+@keyframes move-34-units-X {
+  from {
+    background-position-x: 0px;
+  }
+
+  to {
+    background-position-x: calc(var(--size-unit) * -34);
+  }
+}
+
+
+@keyframes move-17-units-X {
+  from {
+    background-position-x: 0px;
+  }
+
+  to {
+    background-position-x: calc(var(--size-unit) * -17);
+  }
+}
+
+@keyframes move-16-units-X {
+  from {
+    background-position-x: 0px;
+  }
+
+  to {
+    background-position-x: calc(var(--size-unit) * -16);
+  }
+}
+
+
+@keyframes move-8-units-X {
+  from {
+    background-position-x: 0px;
+  }
+
+  to {
+    background-position-x: calc(var(--size-unit) * -8);
+  }
+}
+
+@keyframes move-5-units-X {
+  from {
+    background-position-x: 0px;
+  }
+
+  to {
+    background-position-x: calc(var(--size-unit) * -5);
+  }
+}
+
+.hide {
+  display: none;
+}
+
+.hit {
+  background-color: var(--secondary-color);
+}
+
+.shoot {
+  display: none;
+  height: 45px;
+  width: 45px;
+  font-size: 25px;
+  position: fixed;
+  bottom: 5vh;
+  right: 8vw;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgba(235, 0, 0, 0.171);
+  border: 2px solid white;
+  border-radius: 20px;
+  z-index: 100;
+}
+
+
+.leftMove {
+  display: none;
+  height: 40px;
+  width: 40px;
+  font-size: 25px;
+  position: fixed;
+  bottom: 8vh;
+  left: 1vw;
+
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  border: none;
+  transform: rotate(180deg);
+
+}
+
+.rightMove {
+  display: none;
+  height: 40px;
+  width: 40px;
+  font-size: 25px;
+  position: fixed;
+  bottom: 8vh;
+  left: 17vw;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  border: none;
+
+}
+
+.upMove {
+  display: none;
+  height: 40px;
+  width: 40px;
+  font-size: 25px;
+  position: fixed;
+  bottom: 15vh;
+  left: 9vw;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  border: none;
+  transform: rotate(-90deg);
+
+}
+
+.downMove {
+  display: none;
+  height: 40px;
+  width: 40px;
+  font-size: 25px;
+  position: fixed;
+  bottom: 1vh;
+  left: 9vw;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  border: none;
+  transform: rotate(90deg);
+
+}
+
+
+
+@media(orientation:portrait) {
+
+  body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+
+  .shoot {
+    display: block;
+  }
+
+  .atomBomb {
+    display: block;
+  }
+
+  .leftMove {
+    display: block;
+  }
+
+  .rightMove {
+    display: block;
+  }
+
+  .upMove {
+    display: block;
+  }
+
+  .downMove {
+    display: block;
+  }
+
+  #bstop,
+  #bplay {
+    position: fixed;
+    top: 1vh;
+    left: 45%;
+    transform: translateX(-50%);
+    width: 25px;
+    height: 25px;
+    font-size: 20px;
+    border-radius: 5px;
+    line-height: 12.5px;
+    z-index: 22;
+    background-color: rgba(27, 27, 27, 0.555);
+    color: rgb(250, 226, 211);
+    cursor: pointer;
+    border: 2px solid rgb(250, 226, 211);
+  }
+
+  #bstop {
+    margin-left: 15%;
+  }
+
+
+}
+
+@media(orientation:landscape) and (max-width: 1023px) {
+  .shoot {
+    display: block;
+  }
+
+  .leftMove {
+    display: block;
+    bottom: 10vh;
+  }
+
+  .rightMove {
+    display: block;
+    left: 13vw;
+    bottom: 10vh;
+  }
+
+  .upMove {
+    display: block;
+    left: 7vw;
+    bottom: 19vh;
+  }
+
+  .downMove {
+    display: block;
+    left: 7vw;
+  }
+
+  #bstop,
+  #bplay {
+    position: fixed;
+    top: 1vh;
+    left: 45%;
+    transform: translateX(-50%);
+    width: 25px;
+    height: 25px;
+    font-size: 20px;
+    border-radius: 5px;
+    line-height: 12.5px;
+    z-index: 22;
+    background-color: rgba(27, 27, 27, 0.555);
+    color: rgb(250, 226, 211);
+    cursor: pointer;
+    border: 2px solid rgb(250, 226, 211);
+  }
+
+  #bstop {
+    margin-left: 15%;
+  }
+}
